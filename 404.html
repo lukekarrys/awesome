@@ -73,8 +73,8 @@ function insertCSS(css) {
     head.appendChild(elem);
 };
 
-var name = (window.location.pathname || 'WHO').toUpperCase();
-document.getElementById('name').innerHTML = name.toUpperCase();
+var name = decodeURIComponent((window.location.pathname || 'WHO').toUpperCase());
+document.getElementById('name').innerHTML = name;
 insertCSS('.rainbow:after{content:"' + name + ' IS AWESOME!";}');
 </script>
 </html>
