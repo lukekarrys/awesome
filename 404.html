@@ -50,12 +50,12 @@ animation-duration: 1s;
 }
 
 
-.rainbow:after {content: 'WHO IS AWESOME!';text-shadow: 1px 1px 1px #000;
+.rainbow:after {text-shadow: 1px 1px 1px #000;
     color: transparent; font-size: 5em;}
 </style>
 </head>
 <body>
-<strong class="rainbow tada animated"><span class="r"><span id="name">WHO</span> IS AWESOME!</span></strong>
+<strong class="rainbow tada animated"><span class="r"><span id="name">WHO IS AWESOME!</span></span></strong>
 </body>
 <script>
 // Thanks substack https://github.com/substack/insert-css/blob/master/LICENSE
@@ -73,8 +73,15 @@ function insertCSS(css) {
     head.appendChild(elem);
 };
 
-var name = decodeURIComponent((window.location.pathname || 'WHO').toUpperCase());
-document.getElementById('name').innerHTML = name;
-insertCSS('.rainbow:after{content:"' + name + ' IS AWESOME!";}');
+var name = decodeURIComponent((window.location.pathname || ' WHO').toUpperCase()).slice(1);
+var content;
+if (name === 'WHO') {
+  content = 'WHO IS AWESOME?';
+} else {
+  content = name + ' IS AWESOME!';
+}
+
+document.getElementById('name').innerHTML = content;
+insertCSS('.rainbow:after{content:"' + content + '";}');
 </script>
 </html>
