@@ -73,7 +73,7 @@ function insertCSS(css) {
     head.appendChild(elem);
 };
 
-var name = decodeURIComponent((window.location.pathname || ' WHO').toUpperCase()).slice(1);
+var name = decodeURIComponent((window.location.pathname.slice(1) || 'WHO').toUpperCase());
 var content;
 if (name === 'WHO') {
   content = 'WHO IS AWESOME?';
